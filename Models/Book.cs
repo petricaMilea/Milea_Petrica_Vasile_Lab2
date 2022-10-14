@@ -13,5 +13,8 @@ namespace Milea_Petrica_Vasile_Lab2.Models
 
         [Column(TypeName = "decimal(6, 2)")]
         public decimal Price { get; set; }
+
+        [DataType(DataType.Date)]
+        public DateTime PublishingDate { get; set; }
     }
 }
