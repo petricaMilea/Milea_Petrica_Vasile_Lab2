@@ -15,5 +15,7 @@ namespace Milea_Petrica_Vasile_Lab2.Data
         }
 
         public DbSet<Milea_Petrica_Vasile_Lab2.Models.Book> Book { get; set; } = default!;
+
+        public DbSet<Milea_Petrica_Vasile_Lab2.Models.Publisher> Publisher { get; set; }
     }
 }
