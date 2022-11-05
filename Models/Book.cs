@@ -25,6 +25,7 @@ namespace Milea_Petrica_Vasile_Lab2.Models
         //$ marcheaza sfarsitul sirului de caractere
         public string Author { get; set; }
 
+        [Range(1, 300)]
         [Column(TypeName = "decimal(6, 2)")]
         public decimal Price { get; set; }
 
