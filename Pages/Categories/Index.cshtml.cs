@@ -19,14 +19,13 @@ namespace Milea_Petrica_Vasile_Lab2.Pages.Categories
             _context = context;
         }
 
-        public IList<Book> Book { get;set; } = default!;
+        public IList<Category> Category { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_context.Book != null)
+            if (_context.Category != null)
             {
-                Book = await _context.Book
-                .Include(b => b.Publisher).ToListAsync();
+                Category = await _context.Category.ToListAsync();
             }
         }
     }

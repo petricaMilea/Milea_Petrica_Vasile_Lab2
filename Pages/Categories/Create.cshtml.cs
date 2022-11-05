@@ -21,12 +21,11 @@ namespace Milea_Petrica_Vasile_Lab2.Pages.Categories
 
         public IActionResult OnGet()
         {
-        ViewData["PublisherID"] = new SelectList(_context.Publisher, "ID", "ID");
             return Page();
         }
 
         [BindProperty]
-        public Book Book { get; set; }
+        public Category Category { get; set; }
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
@@ -37,7 +36,7 @@ namespace Milea_Petrica_Vasile_Lab2.Pages.Categories
                 return Page();
             }
 
-            _context.Book.Add(Book);
+            _context.Category.Add(Category);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
