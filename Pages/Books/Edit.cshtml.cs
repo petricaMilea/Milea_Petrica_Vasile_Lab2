@@ -47,6 +47,7 @@ namespace Milea_Petrica_Vasile_Lab2.Pages.Books
 
             PopulateAssignedCategoryData(_context, Book);
             ViewData["PublisherID"] = new SelectList(_context.Publisher, "ID", "PublisherName");
+            ViewData["AuthorID"] = new SelectList(_context.Set<Author>(), "ID", "FirstName", "LastName");
 
             return Page();
         }
