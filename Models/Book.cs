@@ -16,7 +16,7 @@ namespace Milea_Petrica_Vasile_Lab2.Models
         [Display(Name = "Book Title")]
         public string Title { get; set; }
 
-        [RegularExpression(@"^[A-Z][a-z]+\s[A-Z][a-z]+$"), ErrorMessage = "Numele autorului trebuie sa fie de forma 'Prenume Nume')",
+        [RegularExpression(@"^[A-Z][a-z]+\s[A-Z][a-z]+$", ErrorMessage = "Numele autorului trebuie sa fie de forma 'Prenume Nume'"),
             Required, StringLength(50, MinimumLength = 3)]
         //^ marcheaza inceputul sirului de caractere
         //[A-Z][a-z]+ prenumele -litera mare urmata de oricate litere mici
