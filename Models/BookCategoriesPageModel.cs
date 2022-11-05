@@ -17,9 +17,9 @@ namespace Milea_Petrica_Vasile_Lab2.Models
             {
                 AssignedCategoryDataList.Add(new AssignedCategoryData
                 {
-                    CategoryID = cat.ID,
+                    CategoryID = cat.Id,
                     Name = cat.CategoryName,
-                    Assigned = bookCategories.Contains(cat.ID)
+                    Assigned = bookCategories.Contains(cat.Id)
                 });
             }
         }
@@ -34,29 +34,29 @@ namespace Milea_Petrica_Vasile_Lab2.Models
             }
             var selectedCategoriesHS = new HashSet<string>(selectedCategories);
             var bookCategories = new HashSet<int>
-            (bookToUpdate.BookCategories.Select(c => c.Category.ID));
+            (bookToUpdate.BookCategories.Select(c => c.Category.Id));
             foreach (var cat in context.Category)
             {
-                if (selectedCategoriesHS.Contains(cat.ID.ToString()))
+                if (selectedCategoriesHS.Contains(cat.Id.ToString()))
                 {
-                    if (!bookCategories.Contains(cat.ID))
+                    if (!bookCategories.Contains(cat.Id))
                     {
                         bookToUpdate.BookCategories.Add(
                         new BookCategory
                         {
                             BookID = bookToUpdate.ID,
-                            CategoryID = cat.ID
+                            CategoryID = cat.Id
                         });
                     }
                 }
                 else
                 {
-                    if (bookCategories.Contains(cat.ID))
+                    if (bookCategories.Contains(cat.Id))
                     {
                         BookCategory courseToRemove
                         = bookToUpdate
                         .BookCategories
-                        .SingleOrDefault(i => i.CategoryID == cat.ID);
+                        .SingleOrDefault(i => i.CategoryID == cat.Id);
                         context.Remove(courseToRemove);
                     }
                 }
