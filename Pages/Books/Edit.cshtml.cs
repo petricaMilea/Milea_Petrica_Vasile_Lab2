@@ -52,8 +52,6 @@ namespace Milea_Petrica_Vasile_Lab2.Pages.Books
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync(int? id, string[]selectedCategories)
         {
             if (id == null)
@@ -86,8 +84,10 @@ namespace Milea_Petrica_Vasile_Lab2.Pages.Books
             //Apelam UpdateBookCategories pentru a aplica informatiile din checkboxuri la entitatea Books care
             //este editata
             UpdateBookCategories(_context, selectedCategories, bookToUpdate);
+            await _context.SaveChangesAsync(); 
+    
             PopulateAssignedCategoryData(_context, bookToUpdate);
-            return Page();
+            return RedirectToPage("./Index");
         }
 
         private bool BookExists(int id)
