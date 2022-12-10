@@ -14,7 +14,7 @@ namespace Milea_Petrica_Vasile_Lab2.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
-        public ICollection<Book>? Books { get; set; } //navigation property
+        [Display(Name = "Full Name")]
         public string FullName
         {
             get
@@ -22,6 +22,9 @@ namespace Milea_Petrica_Vasile_Lab2.Models
                 return FirstName + " " + LastName;
             }
         }
+
+        public ICollection<Book>? Books { get; set; } //navigation property
+        
 
     }
 }
