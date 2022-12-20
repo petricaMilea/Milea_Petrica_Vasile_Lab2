@@ -27,6 +27,8 @@ namespace Milea_Petrica_Vasile_Lab2.Pages.Books
         public string TitleSort { get; set; }
         public string AuthorSort { get; set; }
 
+        public string CurrentFilter { get; set; }
+
 
         public async Task OnGetAsync(int? id, int? categoryID, string sortOrder)
         {
