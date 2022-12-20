@@ -28,9 +28,12 @@ namespace Milea_Petrica_Vasile_Lab2.Pages.Books
         public string AuthorSort { get; set; }
 
 
-        public async Task OnGetAsync(int? id, int? categoryID)
+        public async Task OnGetAsync(int? id, int? categoryID, string sortOrder)
         {
             BookD = new BookData();
+
+            TitleSort = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
+            AuthorSort = String.IsNullOrEmpty(sortOrder) ? "author_desc" : "";
 
             BookD.Books = await _context.Book
                 .Include(b => b.Author)
@@ -46,6 +49,18 @@ namespace Milea_Petrica_Vasile_Lab2.Pages.Books
                 Book book = BookD.Books
                 .Where(i => i.ID == id.Value).Single();
                 BookD.Categories = book.BookCategories.Select(s => s.Category);
+            }
+
+            switch (sortOrder)
+            {
+                case "title_desc":
+                    BookD.Books = BookD.Books.OrderByDescending(s =>
+                   s.Title);
+                    break;
+                case "author_desc":
+                    BookD.Books = BookD.Books.OrderByDescending(s =>
+                   s.Author.FullName);
+                    break;
             }
         }
     }
