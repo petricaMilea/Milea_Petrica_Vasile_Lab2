@@ -53,10 +53,10 @@ namespace Milea_Petrica_Vasile_Lab2.Pages.Books
 
             if (!string.IsNullOrEmpty(searchString))
             {
-                BookD.Books = BookD.Books.Where(s => s.Author.FirstName.Contains(searchString)
+                BookD.Books = BookD.Books.Where(s => s.Author.FullName.Contains(searchString, StringComparison.InvariantCultureIgnoreCase)
 
                || s.Author.LastName.Contains(searchString)
-               || s.Title.Contains(searchString));
+               || s.Title.Contains(searchString, StringComparison.InvariantCultureIgnoreCase));
             }
 
             if (id != null)
