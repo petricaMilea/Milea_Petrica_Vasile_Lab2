@@ -40,7 +40,6 @@ namespace Milea_Petrica_Vasile_Lab2.Pages.Borrowings
         public Borrowing Borrowing { get; set; }
 
 
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
